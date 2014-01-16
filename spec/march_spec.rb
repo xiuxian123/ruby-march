@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe "" do
-  it '' do
+describe "March Runner" do
+  it 'run with string all' do
     March.run(
     :helle => 'This is Hello',
     :work_1 => Proc.new{"this is work_1"}
@@ -10,15 +10,15 @@ describe "" do
     end
   end
   
-  it '' do
+  it 'run with string and proc' do
     start_at = Time.now
     work_1 = Proc.new {
-      sleep(5)
+      sleep(2)
       Time.now
     }
     
     work_2 = Proc.new {
-      sleep(5)
+      sleep(3)
       Time.now
     }
     
@@ -26,8 +26,7 @@ describe "" do
     :work_1 => work_1,
     :work_2 => work_2
     ) do |result|
-      pp start_at
-      result.should == {}
+      (Time.now - start_at).should < 4
     end
   end
 end

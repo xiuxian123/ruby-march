@@ -1,3 +1,3 @@
-class March
-  VERSION = "0.0.1"
+module March
+  VERSION = "0.0.2"
 end
